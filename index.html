@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Color Notes Franz</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+    <link rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/styles/default.min.css">
+  <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/11.6.0/highlight.min.js"></script>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+	<h1 id="typography">Typography</h1>
+<p>In this lesson, we’ll focus on typography, the art of arranging text on a page. We’ll look at:</p>
+<ul>
+<li>How to style and transform fonts.</li>
+<li>How to lay text out on a page.</li>
+<li>How to add external fonts to your web pages.</li>
+</ul>
+<p>Some of the most important information a user will see on a web page will be textual. Styling text to make page content accessible and engaging can significantly improve user experience. Let’s begin!</p>
+<h1 id="font-family">Font Family</h1>
+<p>You may remember from the Visual Rules lesson that the font of an element can be changed using the font-family property.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-family</span>: Arial;
+}
+</code></pre>
+<p>In the example above, the font family for all<code>&lt;h1&gt;</code>heading elements have been set to Arial.</p>
+<p>Let’s talk about some things to keep in mind when setting font-family values.</p>
+<h1 id="multi-word-values">Multi-Word Values</h1>
+<p>When specifying a typeface with multiple words, like Times New Roman, it is recommended to use quotation marks (&#39; &#39;) to group the words together, like so:</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Times New Roman'</span>;
+}
+</code></pre>
+<h1 id="web-safe-fonts">Web Safe Fonts</h1>
+<p>There is a selection of fonts that will appear the same across all browsers and operating systems. These fonts are referred to as web safe fonts. You can check out a complete list of web safe fonts here.</p>
+    <ul>
+      <li> Arial (sans-serif) </li>
+     <li>Verdana (sans-serif)</li>
+     <li>Tahoma (sans-serif)</li>
+     <li>Trebuchet MS (sans-serif)</li>
+     <li>Times New Roman (serif)</li>
+     <li>Georgia (serif)</li>
+     <li>Garamond (serif)</li>
+     <li>Courier New (monospace)</li>
+     <li>Brush Script MT (cursive)</li>
+
+     
+    </ul>
+<h1 id="fallback-fonts-and-font-stacks">Fallback Fonts and Font Stacks</h1>
+<p>Web safe fonts are good fallback fonts that can be used if your preferred font is not available.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-family</span>: Caslon, Georgia, <span class="hljs-string">'Times New Roman'</span>;
+}
+</code></pre>
+<p>In the example above, Georgia and Times New Roman are fallback fonts to Caslon. When you specify a group of fonts, you have what is known as a font stack. A font stack usually contains a list of similar-looking fonts. Here, the browser will first try to use the Caslon font. If that’s not available, it will try to use a similar font, Georgia. And if Georgia is not available, it will try to use Times New Roman.</p>
+<h1 id="serif-and-sans-serif">Serif and Sans-Serif</h1>
+<p>You may be wondering what features make a font similar to another font. The fonts Caslon, Georgia, and Times New Roman are Serif fonts. Serif fonts have extra details on the ends of each letter, as opposed to Sans-Serif fonts, which do not have the extra details.</p>
+<p><img src="assets/fonts.png" alt="fonts"></p>
+<p>serif and sans-serif are also keyword values that can be added as a final fallback font if nothing else in the font stack is available.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">font-family</span>: Caslon, Georgia, <span class="hljs-string">'Times New Roman'</span>, serif;
+}
+</code></pre>
+<p>In this final example, the font stack has 4 fonts. If the first 3 fonts aren’t available, the browser will use whatever serif font is available on the system.</p>
+
+
+  <a href = "https://replit.com/team/mohawk-front-end-dev/Font-Family-1"><h1 style="color:red;">Font Family Class Exercise</h1></a>
+    
+<h1 id="font-weight">Font Weight</h1>
+<p>In CSS, the font-weight property controls how bold or thin text appears. It can be specified with keywords or numerical values.</p>
+<h1 id="keyword-values">Keyword Values</h1>
+<p>The font-weight property can take any one of these keyword values:</p>
+<ul>
+<li>bold: Bold font weight.</li>
+<li>normal: Normal font weight. This is the default value.</li>
+<li>lighter: One font weight lighter than the element’s parent value.</li>
+<li>bolder: One font weight bolder than the element’s parent value</li>
+</ul>
+<h1 id="numerical-values">Numerical Values</h1>
+<p>Numerical values can range from 1 (lightest) to 1000 (boldest), but it is common practice to use increments of 100.<mark>A font weight of 400 is equal to the keyword value normal, and a font weight of 700 is equal to bold.<mark></p>
+<pre><code class="lang-css"><span class="hljs-selector-class">.left-section</span> {
+  <span class="hljs-attribute">font-weight</span>: <span class="hljs-number">700</span>;
+}
+
+<span class="hljs-selector-class">.right-section</span> {
+  <span class="hljs-attribute">font-weight</span>: bold; 
+}
+</code></pre>
+<p>In the example above, text in elements of both <code>.left-section</code> and <code>.right-section</code>classes will appear bold.</p>
+<p>It’s important to note that not all fonts can be assigned a numeric font weight, and not all numeric font weights are available to all fonts. It’s a good practice to look up the font you are using to see which font-weight values are available.</p>
+
+
+  <a href = "https://replit.com/team/mohawk-front-end-dev/Font-Weight-1"><h1 style="color:red;">Font Weight Exercise</h1></a>
+
+  
+<h1 id="font-style">Font Style</h1>
+<p>You can also italicize text with the font-style property.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h3</span> {
+  <span class="hljs-attribute">font-style</span>: italic;
+}
+</code></pre>
+<p>The italic value causes text to appear in italics. The font-style property also has a normal value which is the default.</p>
+
+
+    <a href = "https://replit.com/team/mohawk-front-end-dev/Font-Style"><h1 style="color:red;">Font Style Exercise</h1></a>
+  
+  <h1 id="text-transformation">Text Transformation</h1>
+
+  
+
+  
+<p>Text can also be styled to appear in either all uppercase or lowercase with the text-transform property.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">text-transform</span>: uppercase;
+}
+</code></pre>
+<p>The code in the example above formats all<code>&lt;h1&gt;</code> elements to appear in uppercase, regardless of the case used for the heading within the HTML code. Alternatively, the lowercase value could be used to format text in all lowercase.</p>
+<p>Since text can be directly typed in all uppercase or lowercase within an HTML file, what is the point of a CSS rule that allows you to format letter case?</p>
+<p>Depending on the type of content a web page displays, it may make sense to always style a specific element in all uppercase or lowercase letters. For example, a website that reports breaking news may decide to format all <code>&lt;h1&gt;</code> heading elements such that they always appear in all uppercase, as in the example above. It would also avoid uppercase text in the HTML file, which could make code difficult to read.</p>
+
+
+<a href = "https://replit.com/team/mohawk-front-end-dev/Text-Transformation"><h1 style="color:red;">Text Transformation Exercise</h1></a>
+
+  
+<h1 id="text-layout">Text Layout</h1>
+<p>You’ve learned how text can be defined by font family, weight, style, and transformations. Now you’ll learn about some ways text can be displayed or laid out within the element’s container.</p>
+<h1 id="letter-spacing">Letter Spacing</h1>
+<p>The letter-spacing property is used to set the horizontal spacing between the individual characters in an element. It’s not common to set the spacing between letters, but it can sometimes help the readability of certain fonts or styles. The letter-spacing property takes length values in units, such as 2px or 0.5em.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">letter-spacing</span>: <span class="hljs-number">2px</span>;
+}
+</code></pre>
+<p>In the example above, each character in the paragraph element will be separated by 2 pixels.</p>
+<h1 id="word-spacing">Word Spacing</h1>
+<p>You can set the space between words with the word-spacing property. It’s also not common to increase the spacing between words, but it may help enhance the readability of bolded or enlarged text. The word-spacing property also takes length values in units, such as 3px or 0.2em.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">word-spacing</span>: <span class="hljs-number">0.3em</span>;
+}
+</code></pre>
+<p>In the example above, the word spacing is set to 0.3em. For word spacing, using em values are recommended because the spacing can be set based on the size of the font.</p>
+<h1 id="line-height">Line Height</h1>
+<p><img src="assets/pic.png" alt="diagram"></p>
+<p>We can use the line-height property to set how tall we want each line containing our text to be. Line height values can be a unitless number, such as 1.2, or a length value, such as 12px, 5% or 2em.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">line-height</span>: <span class="hljs-number">1.4</span>;
+}
+</code></pre>
+<p>In the example above, the height between lines is set to 1.4. Generally, the unitless value is preferred since it is responsive based on the current font size. In other words, if the line-height is specified by a unitless number, changing the font size will automatically readjust the line height.</p>
+<h1 id="text-alignment">Text Alignment</h1>
+<p>The text-align property, which you may already be familiar with from the CSS Visual Rules lesson, aligns text to its parent element.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">h1</span> {
+  <span class="hljs-attribute">text-align</span>: right;
+}
+</code></pre>
+<p>In the example above, the<code>&lt;h1&gt;</code> element is aligned to the right side, instead of the default left.</p>
+
+  <a href = "https://replit.com/team/mohawk-front-end-dev/Text-Layout"><h1 style="color:red;">Text Alignment Exercise</h1></a>
+  
+<h1 id="web-fonts">Web Fonts</h1>
+<p>Previously, we learned about web safe fonts, a group of fonts supported across browsers and operating systems. However, the fonts you can use for your website are limitless—web fonts allow you to express your unique style through a multitude of different fonts found on the web.</p>
+<p>Free font services, like Google Fonts and Adobe Fonts, host fonts that you can link to from your HTML document with a provided <code>&lt;link&gt;</code>element.</p>
+<p>You can also use fonts from paid font distributors like fonts.com by downloading and hosting them with the rest of your site’s files. You can create a @font-face ruleset in your CSS stylesheet to link to the relative path of the font file.</p>
+<p>Both techniques for including web fonts into your site allow you to go beyond the sometimes “traditional” appearance of web safe fonts.</p>
+<p><img src="assets/pic5.png" alt="pic5"></p>
+<h1 id="web-fonts-using-link">Web Fonts Using link</h1>
+<p>Online font services, like Google Fonts, make it easy to find and link to fonts from your site. You can browse and select fonts that match the style of your website.</p>
+<p><img src="assets/pic6.png" alt="pic6"></p>
+<p>When you select a font in Google Fonts, you’ll be shown all of the different styles available for that particular font. You can then select the styles you want to use on your site.</p>
+<p><img src="assets/pic7.png" alt="pic7"></p>
+<h1 id="showing-selected-font-families">Showing Selected Font Families</h1>
+<p>When you’re done selecting a font and its styles, you can review your selected font family, and a <link> element will be automatically generated for you to use on your site!</p>
+<pre><code class="lang-html"><span class="hljs-tag">&lt;<span class="hljs-name">head</span>&gt;</span>
+  <span class="hljs-comment">&lt;!-- Add the link element for Google Fonts along with other metadata --&gt;</span>
+  <span class="hljs-tag">&lt;<span class="hljs-name">link</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"https://fonts.googleapis.com/css2?family=Roboto:wght@100&amp;display=swap"</span> <span class="hljs-attr">rel</span>=<span class="hljs-string">"stylesheet"</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">head</span>&gt;</span>
+</code></pre>
+<p>The generated<code>&lt;link&gt;</code>element needs to be added to the <code>&lt;head&gt;</code>element in your HTML document for it to be ready to be used in your CSS.</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'Roboto'</span>, sans-serif;
+}
+</code></pre>
+<p>You can then create font-family declarations in your CSS, just like how you learned to do with other fonts!</p>
+
+
+  <a href = "https://replit.com/team/mohawk-front-end-dev/Web-Fonts"><h1 style="color:red;">Web Fonts Exercise</h1></a>
+  
+<h1 id="web-fonts-using-font-face">Web Fonts Using @font-face</h1>
+<p>Fonts can also be added using a @font-face ruleset in your CSS stylesheet instead of using a<code>&lt;link&gt;</code>element in your HTML document. As mentioned earlier, fonts can be downloaded just like any other file on the web. They come in a few different file formats, such as:</p>
+<ul>
+<li>OTF (OpenType Font)</li>
+<li>TTF (TrueType Font)</li>
+<li>WOFF (Web Open Font Format)</li>
+<li>WOFF2 (Web Open Font Format 2)</li>
+</ul>
+<p>The different formats are a progression of standards for how fonts will work with different browsers, with WOFF2 being the most progressive. It’s a good idea to include TTF, WOFF, and WOFF2 formats with your @font-face rule to ensure compatibility on all browsers.</p>
+<p>Let’s take a look at how to use @font-face using the same Roboto font as before:</p>
+<p><img src="assets/fontface.png" alt="font"></p>
+<p>Within the “Selected Families” section, you can use the “Download” button to download the font files to your computer. The files will be downloaded as a single format, in this case, TTF. You can use a tool such as Google Web Fonts Helper to generate additional file types for WOFF and WOFF2.</p>
+<p>When you have the files you need, move them to a folder inside your website’s working directory, and you’re ready to use them in a @font-face ruleset!</p>
+<pre><code class="lang-css">@<span class="hljs-keyword">font-face</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'MyParagraphFont'</span>;
+  <span class="hljs-attribute">src</span>: <span class="hljs-built_in">url</span>(<span class="hljs-string">'fonts/Roboto.woff2'</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff2'</span>),
+       <span class="hljs-built_in">url</span>(<span class="hljs-string">'fonts/Roboto.woff'</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'woff'</span>),
+       <span class="hljs-built_in">url</span>(<span class="hljs-string">'fonts/Roboto.ttf'</span>) <span class="hljs-built_in">format</span>(<span class="hljs-string">'truetype'</span>);
+}
+</code></pre>
+<p>Let’s take a look at the example above, line by line:</p>
+<p>The<code>@font-face</code>at-rule is used as the selector. It’s recommended to define the<code>@font-face</code>ruleset at the top of your CSS stylesheet.</p>
+<p>Inside the declaration block, the font-family property is used to set a custom name for the downloaded font. The name can be anything you choose, but it must be surrounded by quotation marks. In the example, the font is named &#39;MyParagraphFont&#39;, as this font will be used for all paragraphs.
+The src property contains three values, each specifying the relative path to the font file and its format. In this example, the font files are stored inside a folder named fonts within the working directory.
+Note that the ordering for the different formats is important because our browser will start from the top of the list and search until it finds a font format that it supports. Read more on format prioritization on CSS-Tricks.
+Once the <code>@font-face</code> at-rule is defined, you can use the font in your stylesheet!</p>
+<pre><code class="lang-css"><span class="hljs-selector-tag">p</span> {
+  <span class="hljs-attribute">font-family</span>: <span class="hljs-string">'MyParagraphFont'</span>, sans-serif;
+}
+</code></pre>
+<p>Like using any other fonts, you can use the font-family property to set the font on any HTML element. The downloaded font can be referenced with the name you provided as the font-family property’s value in the @font-face ruleset—in this case, &#39;MyParagraphFont&#39;.</p>
+
+
+ <a href = "https://replit.com/team/mohawk-front-end-dev/Web-Fonts-Using-Font-Face"><h1 style="color:red;">Web Fonts Exercise</h1></a>
+  
+      <script>hljs.highlightAll();</script>
+
+  </body>
+</html>
+
